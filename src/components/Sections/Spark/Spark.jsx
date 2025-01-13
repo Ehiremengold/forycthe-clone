@@ -1,22 +1,58 @@
 import "./Spark.css";
 import { sparkCtas, sparkCtasIllustrations } from "./export";
 import StyledButton from "../../StyledButton/StyledButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const Spark = () => {
   const [tab, setTabSelect] = useState(0);
+  const [inView, setInView] = useState(false);
 
+  // IntersectionObserver is to track if the component is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInView(true); // Set to true when in view
+          }
+        });
+      },
+      { threshold: 0.5 } // Trigger when 50% of the component is in view
+    );
+
+    const sectionElement = document.querySelector(".spark-to-spotlight");
+    if (sectionElement) {
+      observer.observe(sectionElement);
+    }
+
+    return () => {
+      if (sectionElement) {
+        observer.unobserve(sectionElement);
+      }
+    };
+  }, []);
   return (
     <section className="spark-to-spotlight">
       <div className="wrapper">
-        <h2 className="header-text">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : -20 }}
+          transition={{ duration: 0.5 }}
+          className="header-text"
+        >
           From <span className="emphasis-text">Spark</span> to
           <span className="emphasis-text"> Spotlight</span>: we take you every
           step of the way to success.
-        </h2>
+        </motion.h2>
         <div className="spark-to-spotlight-actions-container">
           <div className="spark-to-spotlight-actions">
-            <div className="tab-select">
+            <motion.div
+              className="tab-select"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -20 }}
+              transition={{ duration: 0.5 }}
+            >
               <div
                 className={`tab-1 ${tab == 0 && "active"}`}
                 onClick={() => setTabSelect(0)}
@@ -41,25 +77,33 @@ const Spark = () => {
               >
                 Launch
               </div>
-            </div>
-            <div className="tab-select-content">
-              {sparkCtas.map((sparkCta, index) => {
-                const { title, description } = sparkCta;
-                return (
+            </motion.div>
+            <motion.div
+              className="tab-select-content"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              {sparkCtas.map(
+                (sparkCta, index) =>
                   tab === index && (
                     <div key={index} className="content__container">
-                      <h2>{title}</h2>
-                      <p className="subtle-text">{description}</p>
+                      <h2>{sparkCta.title}</h2>
+                      <p className="subtle-text">{sparkCta.description}</p>
                     </div>
                   )
-                );
-              })}
-            </div>
+              )}
+            </motion.div>
             <StyledButton forwardIcon={true} />
           </div>
-          <div className="spark-to-spotlight-illustration">
+          <motion.div
+            className="spark-to-spotlight-illustration"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 20 }}
+            transition={{ duration: 0.5 }}
+          >
             <img src={sparkCtasIllustrations[tab]} alt="" />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -10,5 +10,6 @@
   background-color: rgb(59, 130, 246);
   box-shadow: rgba(255, 255, 255, 0);
   cursor: pointer;
+  z-index: 100;
 }
 

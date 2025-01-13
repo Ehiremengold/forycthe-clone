@@ -25,7 +25,7 @@
   margin: 3rem 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .bee-2-bee .wrapper .bee-2-bee-desc-container {
     flex-wrap: wrap;
   }

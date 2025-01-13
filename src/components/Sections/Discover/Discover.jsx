@@ -7,6 +7,7 @@ import starks from "../../../assets/company-logos/starks.svg";
 import { useState, useEffect } from "react";
 import { testimonies } from "./testimonies";
 import LazyImage from "../../LazyImage/LazyImage";
+import { motion } from "framer-motion";
 
 // In bigger screens, i want the 'testimony' card moving close the the appropriate tabs
 // on smaller screen it looks alright
@@ -44,14 +45,41 @@ const Discover = () => {
     return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
 
+  // For animation
+  useEffect(() => {
+    const elements = document.querySelectorAll(".fade-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    elements.forEach((element) => {
+      observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="discover">
       <div className="wrapper">
-        <h2>
+        <motion.h2
+          className="fade-on-scroll"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
           Discover the{" "}
           <span className="emphasis-text">transformative stories</span> of
           <br /> startups that scaled new heights with us
-        </h2>
+        </motion.h2>
         <div className="auto-tab-container">
           <div
             className={`icon-tab-container ${tab === 0 && "active"}`}
@@ -86,12 +114,15 @@ const Discover = () => {
           </div>
         </div>
 
-        <div
-          className="testimony-container "
+        <motion.div
+          className="testimony-container"
           style={{
             transform: `translateX(${getPushDistance()}rem)`,
             transition: "transform 0.5s ease", // Smooth animation
           }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1 }}
         >
           <div className="text-content">
             <h3>{testimonies[tab].title}</h3>
@@ -99,9 +130,9 @@ const Discover = () => {
             <h4>{testimonies[tab].name}</h4>
           </div>
           <div className="img-content">
-            <img src={testimonies[tab].img} alt="" />
+            <LazyImage src={testimonies[tab].img} alt="" />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -8,6 +8,29 @@
   /* border: 1px solid red; */
 }
 
+.discover h2,
+.testimony-container h3,
+.testimony-container p,
+.testimony-container h4 {
+  opacity: 0;
+  transform: translateY(30px); /* Start with text below the screen */
+  animation: fadeInUp 1.5s forwards;
+}
+
+.testimony-container h3,
+.testimony-container p,
+.testimony-container h4 {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .discover h2 {
   text-align: center;
   font-size: clamp(1.5rem, 2vw, 3rem);
@@ -80,6 +103,19 @@
   max-width: 600px;
   gap: 1rem;
   transition: transform 0.5s ease;
+}
+
+/* Add animation delay for each section */
+.testimony-container h3 {
+  animation-delay: 0.3s;
+}
+
+.testimony-container p {
+  animation-delay: 0.6s;
+}
+
+.testimony-container h4 {
+  animation-delay: 0.9s;
 }
 
 .testimony-container p {

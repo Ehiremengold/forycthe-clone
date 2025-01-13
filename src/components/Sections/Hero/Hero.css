@@ -18,6 +18,39 @@
   border-radius: 30px;
   margin-bottom: 2rem;
 }
+
+.hero .wrapper p,
+.hero h1,
+.hero h2 {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 2s forwards;
+  overflow: hidden; /* Hide overflowing text during animation */
+  white-space: normal; /* Allow text to wrap */
+}
+
+.hero h1 span,
+.hero h2 span {
+  color: #3498db; /* Change color for emphasis */
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+
 @media (min-width: 900px) {
   .hero .wrapper .content-wrapper {
     max-width: 64%;

@@ -1,34 +1,78 @@
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import "./Scale.css";
 import StyledButton from "../../StyledButton/StyledButton";
 import logo from "../../../assets/company-logos/forcythelogo.svg";
 import { socialMediaIcons } from "../../../assets/social-media-icons/exports";
-import { useState } from "react";
 
 const Scale = () => {
   const [radioClick, setRadioClick] = useState(false);
+  const [inView, setInView] = useState(false);
+
+  // IntersectionObserver to track if the component is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInView(true); // Set to true when in view
+          }
+        });
+      },
+      { threshold: 0.5 } // Trigger when 50% of the component is in view
+    );
+
+    const sectionElement = document.querySelector(".scale");
+    if (sectionElement) {
+      observer.observe(sectionElement);
+    }
+
+    return () => {
+      if (sectionElement) {
+        observer.unobserve(sectionElement);
+      }
+    };
+  }, []);
 
   return (
     <section className="scale">
-      <div className="scale__header-text">
+      <motion.div
+        className="scale__header-text"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: inView ? 1 : 0 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+      >
         <h2>
           <span className="emphasis-text">Ready to Scale?</span>
           <br /> Join successful brands that chose us as their{" "}
           <span className="emphasis-text">growth accelerator</span>
         </h2>
         <StyledButton />
-      </div>
+      </motion.div>
+
       <section className="footer">
         <div className="wrapper">
           {/* left most */}
           <div className="input-subscribe">
-            <div className="subscribe-input-container">
+            <motion.div
+              className="subscribe-input-container"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: inView ? 1 : 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            >
               <div className="input-container">
                 <input
                   type="text"
                   className="subscribe-input"
                   placeholder="Your Email Address"
                 />
-                <button className="subscribe-btn">Subscribe</button>
+                <motion.button
+                  className="subscribe-btn"
+                  whileHover={{ scale: 1.1, backgroundColor: "#064386", color: "white" }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Subscribe
+                </motion.button>
               </div>
               <div className="radio-choice">
                 <div
@@ -41,12 +85,17 @@ const Scale = () => {
                   I agree to receive other notifications from Forcythe
                 </label>
               </div>
-            </div>
+            </motion.div>
           </div>
           {/* left most */}
 
           {/* center */}
-          <div className="footer-center">
+          <motion.div
+            className="footer-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: inView ? 1 : 0 }}
+            transition={{ duration: 1, delay: 0.8 }}
+          >
             <div className="logo">
               <img src={logo} alt="forcythe-logo" />
             </div>
@@ -56,15 +105,18 @@ const Scale = () => {
               solutions that drive growth.
             </p>
             <div className="social-media-icons">
-              {socialMediaIcons.map((icon, index) => {
-                return (
-                  <div className="social-icon-container" key={index}>
-                    <img src={icon} alt="" />
-                  </div>
-                );
-              })}
+              {socialMediaIcons.map((icon, index) => (
+                <motion.div
+                  key={index}
+                  className="social-icon-container"
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <img src={icon} alt="" />
+                </motion.div>
+              ))}
             </div>
-          </div>
+          </motion.div>
           {/* center */}
 
           {/* right */}
@@ -84,10 +136,16 @@ const Scale = () => {
         </div>
       </section>
       <div className="blue-line"></div>
-      <div className="wrapper">
+      <motion.div
+        className="wrapper"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: inView ? 1 : 0 }}
+        transition={{ duration: 1, delay: 1 }}
+      >
         <h5>Copyright © 2024 Forcythe. All rights reserved.</h5>
-      </div>
+      </motion.div>
     </section>
   );
 };
+
 export default Scale;
