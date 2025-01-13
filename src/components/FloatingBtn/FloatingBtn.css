@@ -1,0 +1,14 @@
+.msg-container {
+  position: fixed;
+  padding: .5rem;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 50%;
+  display: flex;
+  place-content: center;
+  transition: all .4s ease-in-out;
+  background-color: rgb(59, 130, 246);
+  box-shadow: rgba(255, 255, 255, 0);
+  cursor: pointer;
+}
+

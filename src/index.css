@@ -47,6 +47,7 @@ body {
   margin-inline: auto;
   font-family: "Lexend", sans-serif;
   /* overflow: hidden; */
+  position: relative;
   scroll-behavior: smooth;
 }
 
