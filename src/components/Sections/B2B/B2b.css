@@ -38,6 +38,9 @@
   border-radius: 15px;
   background-color: var(--primary-background);
   padding: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .layer-icon-container {
@@ -63,7 +66,7 @@
   border-bottom: none;
 }
 
-@media (max-width:641px) {
+@media (max-width: 641px) {
   .stats-section {
     width: 120%;
     max-width: 60rem;
@@ -78,8 +81,8 @@
   place-self: center;
 }
 
-@media (max-width:768px) {
-  .stats-data-intro h3{
+@media (max-width: 768px) {
+  .stats-data-intro h3 {
     text-align: center;
   }
 }
@@ -102,5 +105,5 @@
 }
 
 .emphasis-text-color {
-  color: #60A6E7;
+  color: #60a6e7;
 }

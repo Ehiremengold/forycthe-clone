@@ -4,7 +4,6 @@ import logo from "../../../assets/company-logos/forcythelogo.svg";
 import { socialMediaIcons } from "../../../assets/social-media-icons/exports";
 import { useState } from "react";
 
-
 const Scale = () => {
   const [radioClick, setRadioClick] = useState(false);
 
@@ -16,10 +15,7 @@ const Scale = () => {
           <br /> Join successful brands that chose us as their{" "}
           <span className="emphasis-text">growth accelerator</span>
         </h2>
-        <div className="cta-btn">
-          <button>Book a Call</button>
-          <div className="dashed-btn"></div>
-        </div>
+        <StyledButton />
       </div>
       <section className="footer">
         <div className="wrapper">

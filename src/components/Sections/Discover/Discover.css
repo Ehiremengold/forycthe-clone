@@ -1,0 +1,102 @@
+.discover {
+  margin: 3rem 0;
+}
+.discover .wrapper {
+  /* overflow: hidden; */
+  margin-inline: auto;
+  position: relative;
+  /* border: 1px solid red; */
+}
+
+.discover h2 {
+  text-align: center;
+  font-size: clamp(1.5rem, 2vw, 3rem);
+}
+
+.auto-tab-container {
+  /* padding: 0 1.5rem; */
+  height: 60px;
+  width: 100%;
+  border: 1px solid var(--accent);
+  margin: 2rem 0;
+  border-radius: 25px;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.icon-tab-container {
+  padding: 0.8rem 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  place-content: center;
+  /* overflow: hidden; */
+}
+
+.icon-tab-container img {
+  max-height: 27px;
+}
+
+.auto-tab-container .icon-tab-container.active {
+  background-color: var(--secondary-background);
+  /* overflow: hidden; */
+}
+
+.auto-tab-container div:first-child {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  gap: 0.5rem;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.auto-tab-container div:last-child {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+@media (max-width: 768px) {
+  .auto-tab-container div:last-child img {
+    height: 15px;
+  }
+}
+
+@media (max-width: 425px) {
+  .auto-tab-container {
+    overflow: scroll;
+    clip-path: inset(0 -15px 0 0);
+  }
+}
+
+.testimony-container {
+  background-color: #0c2645;
+  color: #fff;
+  border-radius: 25px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  gap: 1rem;
+  transition: transform 0.5s ease;
+}
+
+.testimony-container p {
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 650px) {
+  .testimony-container {
+    flex-wrap: wrap;
+  }
+  .testimony-container .img-content {
+    /* border: 1px solid red; */
+    width: 100%;
+  }
+  .testimony-container .img-content img {
+    width: 100%;
+  }
+}
+
+
