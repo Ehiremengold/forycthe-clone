@@ -4,8 +4,10 @@ import logo from "../../../assets/company-logos/forcythelogo.svg";
 import { socialMediaIcons } from "../../../assets/social-media-icons/exports";
 import { useState } from "react";
 
+
 const Scale = () => {
   const [radioClick, setRadioClick] = useState(false);
+
   return (
     <section className="scale">
       <div className="scale__header-text">
@@ -14,7 +16,10 @@ const Scale = () => {
           <br /> Join successful brands that chose us as their{" "}
           <span className="emphasis-text">growth accelerator</span>
         </h2>
-        <StyledButton />
+        <div className="cta-btn">
+          <button>Book a Call</button>
+          <div className="dashed-btn"></div>
+        </div>
       </div>
       <section className="footer">
         <div className="wrapper">
@@ -84,8 +89,7 @@ const Scale = () => {
       </section>
       <div className="blue-line"></div>
       <div className="wrapper">
-
-      <h5>Copyright © 2024 Forcythe. All rights reserved.</h5>
+        <h5>Copyright © 2024 Forcythe. All rights reserved.</h5>
       </div>
     </section>
   );

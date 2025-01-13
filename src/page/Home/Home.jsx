@@ -2,6 +2,7 @@ import "./Home.css";
 import {
   Hero,
   ProductsMotion,
+  Discover,
   Spark,
   B2b,
   Blog,
@@ -13,7 +14,7 @@ const Home = () => {
     <>
       <Hero />
       <ProductsMotion />
-      {/* <Discover /> */}
+      <Discover />
       <Spark />
       <B2b />
       <Blog />
