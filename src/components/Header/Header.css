@@ -2,23 +2,18 @@ header {
   padding: 1.5rem 0;
   z-index: 1000;
   width: 100%;
-  /* border: 1px solid red; */
   position: fixed;
   top: 0;
-  /* left: 0;
-  right: 0; */
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
   background-color: transparent; /* Semi-transparent background */
   backdrop-filter: blur(10px); /* Applies the blur effect */
 }
 header nav {
   gap: 4rem;
-  /* justify-content: space-between; */
   width: 85%;
   margin-inline: auto;
   display: flex;
   align-items: center;
-
   justify-content: space-between;
 }
 
