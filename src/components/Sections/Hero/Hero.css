@@ -1,0 +1,43 @@
+.hero {
+  background-image: url("../../../assets/illustrations/header-background.svg");
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  position: relative;
+  margin-top: 6.5rem;
+  /* height: 600px; */
+  /* border: 1px solid red; */
+}
+
+.hero .wrapper {
+  padding: 2rem 2.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  margin-bottom: 2rem;
+}
+@media (min-width: 900px) {
+  .hero .wrapper .content-wrapper {
+    max-width: 64%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background-size: cover;
+  }
+  .hero .wrapper {
+    padding: 2rem 1rem;
+  }
+}
+
+.hero .wrapper p {
+  font-size: clamp(1rem, 1.25vw, 3rem);
+  margin: 1.5rem 0;
+}
+
+.hero h2 {
+  text-align: center;
+}

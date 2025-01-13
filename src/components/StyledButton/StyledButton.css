@@ -1,0 +1,47 @@
+.cta-btn {
+  position: relative;
+  width: fit-content;
+}
+
+.cta-btn button,
+.cta-btn .dashed-btn {
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+    border 0.2s ease-in-out;
+}
+
+.cta-btn:hover button {
+  color: var(--light-grey);
+  background-color: #064386;
+}
+
+.cta-btn:hover .dashed-btn {
+  border-color: #064386;
+}
+
+.cta-btn button {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 24px;
+  font-weight: 600;
+  padding: 12px 20px;
+  background-color: var(--light-grey);
+  border: none;
+  font-family: "Lexend", sans-serif;
+  font-size: 1rem;
+  border-radius: 25px;
+}
+
+.dashed-btn {
+  z-index: -1;
+  width: 100%;
+  padding: 24px 40px;
+  border-radius: 25px;
+  position: absolute;
+  left: -8px;
+  top: 5px;
+  border: 1px dashed var(--light-grey);
+}

@@ -1,0 +1,110 @@
+header {
+  padding: 1.5rem 0;
+  z-index: 1000;
+  width: 100%;
+  /* border: 1px solid red; */
+  position: fixed;
+  top: 0;
+  /* left: 0;
+  right: 0; */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+  background-color: transparent; /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Applies the blur effect */
+}
+header nav {
+  gap: 4rem;
+  /* justify-content: space-between; */
+  width: 85%;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+header nav .nav-items {
+  display: flex;
+  gap: 1.5rem;
+  flex: 1;
+  flex-shrink: 1;
+  margin-right: 4rem;
+}
+header nav .nav-items li {
+  list-style: none;
+  cursor: pointer;
+  color: var(--light-grey);
+  font-weight: 600;
+}
+
+.mobile-desktop-nav {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  align-items: center;
+}
+
+.mobile-desktop-nav .show-on-mobile {
+  display: none;
+}
+
+.menu-container img {
+  /* width: 100%; */
+  height: 20px;
+}
+.menu-container {
+  padding: 0.5rem;
+  display: none;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+@media (max-width: 916px) {
+  .menu-container {
+    display: flex;
+  }
+  header nav .nav-items {
+    gap: 2rem;
+  }
+  .mobile-desktop-nav .show-on-mobile {
+    display: none;
+    transition: display 0.5s ease-in-out;
+  }
+  .mobile-desktop-nav.show .show-on-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .mobile-desktop-nav .cta-btn {
+    display: none;
+  }
+  .mobile-desktop-nav.show .cta-btn {
+    display: none;
+  }
+  .mobile-desktop-nav {
+    position: absolute;
+    flex-direction: column;
+    justify-items: flex-start;
+    gap: 2rem;
+    right: 40px;
+    padding: 2.5rem;
+    border-radius: 20px;
+    top: 90px;
+    background: linear-gradient(to bottom, #1d1e2e, #030516);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-300px);
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out,
+      transform 0.5s ease-in-out;
+  }
+  .mobile-desktop-nav.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  header nav .nav-items {
+    flex-direction: column;
+  }
+}

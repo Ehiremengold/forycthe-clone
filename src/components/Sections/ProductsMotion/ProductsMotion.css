@@ -1,0 +1,48 @@
+.slider {
+  overflow: hidden;
+  margin: auto;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.slide-track {
+  display: flex;
+  gap: 1rem;
+  width: calc(250px * 12); /* Adjusted for seamless looping */
+  animation: scroll 30s linear infinite; /* Left to right */
+}
+
+.slide-track-2 {
+  display: flex;
+  gap: 1rem;
+  width: calc(250px * 12); /* Adjusted for seamless looping */
+  margin-top: 1rem;
+  animation: scroll-reverse 30s linear infinite; /* Right to left */
+}
+
+/* Left to right animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 6));
+  }
+}
+
+/* Right to left animation */
+@keyframes scroll-reverse {
+  0% {
+    transform: translateX(calc(-250px * 6));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+
+}

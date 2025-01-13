@@ -1,0 +1,69 @@
+/* General Styling  */
+:root {
+  --primary-background: #030516;
+  --secondary-background: #1f3449;
+  --linear-background: rgba(12, 38, 69, 0);
+  --linear-background2: rgba(7, 22, 38, 0);
+  --accent: #60a6e7;
+  --dark-grey: #aea9b1;
+  --light-grey: #e6e0e9;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: #fff;
+  font-weight: 400;
+}
+h1 {
+  font-size: clamp(3rem, 5vw, 5rem);
+}
+h2 {
+  font-size: clamp(1.45rem, 2.25vw, 3rem);
+}
+body {
+  background-color: var(--primary-background);
+  max-width: 100%;
+  width: 2000px; /* Using this width because of my screen's width (for incredibly wide screens) */
+  margin-inline: auto;
+  font-family: "Lexend", sans-serif;
+  /* overflow: hidden; */
+  scroll-behavior: smooth;
+}
+
+.wrapper {
+  width: 85%;
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    width: 90%;
+  }
+}
+
+.emphasis-text {
+  color: var(--accent);
+}
+
+.subtle-text {
+  color: #aea9ad;
+}
