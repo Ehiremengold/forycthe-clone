@@ -44,12 +44,12 @@
   margin: 2rem 0;
   border-radius: 35px;
   display: flex;
-  gap: 0.5rem;
+  /* gap: 0.5rem; */
   align-items: center;
 }
 
 .icon-tab-container {
-  padding: 0.8rem 0;
+  padding: 0.8rem ;
   width: 100%;
   height: 100%;
   display: flex;

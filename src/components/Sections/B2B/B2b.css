@@ -68,9 +68,13 @@
 
 @media (max-width: 641px) {
   .stats-section {
-    width: 120%;
-    max-width: 60rem;
+    padding: 0;
+    width: 100%;
+    max-width: 65rem;
     border-radius: 35rem 35rem 0 0;
+  }
+  .bee-2-bee .wrapper {
+    overflow: visible;
   }
 }
 .stats-data-intro {
