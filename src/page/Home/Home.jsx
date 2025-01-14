@@ -15,7 +15,7 @@ const Home = () => {
       <Hero />
       <ProductsMotion />
       <Discover />
-      {/* <Spark /> */}
+      <Spark />
       <B2b />
       <Blog />
       <Scale />
