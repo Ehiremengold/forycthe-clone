@@ -1,28 +1,7 @@
 import "./Hero.css";
 import StyledButton from "../../StyledButton/StyledButton";
-import { useEffect } from "react";
 
 const Hero = () => {
-  useEffect(() => {
-    const elements = document.querySelectorAll(".animate-typing");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    elements.forEach((element) => {
-      observer.observe(element);
-    });
-
-    return () => observer.disconnect();
-  }, []);
   return (
     <section className="hero">
       <div className="wrapper">

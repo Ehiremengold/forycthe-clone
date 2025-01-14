@@ -37,3 +37,4 @@ Implemented Framer Motion for smooth, engaging animations throughout the website
 #### 'Discover' Section Overflow:
 
 Encountered a challenge ensuring that the last image in the 'Discover' section remains within the viewport without overflowing. Investigated various techniques to resolve this issue, ensuring a seamless user experience across different screen sizes.
+

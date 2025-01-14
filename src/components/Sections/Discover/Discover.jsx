@@ -8,33 +8,12 @@ import { useState, useEffect } from "react";
 import { testimonies } from "./testimonies";
 import LazyImage from "../../LazyImage/LazyImage";
 import { motion } from "framer-motion";
-
-// In bigger screens, i want the 'testimony' card moving close the the appropriate tabs
-// on smaller screen it looks alright
-const useScreenSize = () => {
-  const [screenSize, setScreenSize] = useState(window.innerWidth); // Track screen width
-
-  useEffect(() => {
-    const handleResize = () => setScreenSize(window.innerWidth);
-
-    window.addEventListener("resize", handleResize); // Add listener for resizing
-
-    return () => window.removeEventListener("resize", handleResize); // Cleanup listener
-  }, []);
-
-  return screenSize;
-};
+import { useScreenSize } from "../../../CustomHook/useScreenSize";
+import { getPushDistance } from "./utils";
 
 const Discover = () => {
   const [tab, setTab] = useState(0);
   const screenWidth = useScreenSize();
-
-  // Determine push distance based on screen width
-  const getPushDistance = () => {
-    if (screenWidth >= 1440) return tab * 15; // Larger push for 1440px and above
-    if (screenWidth >= 1024) return tab * 5; // Standard push for 1024px and above
-    return 0; // No push for smaller screens
-  };
 
   // Automatically switch tabs
   useEffect(() => {
@@ -117,7 +96,7 @@ const Discover = () => {
         <motion.div
           className="testimony-container"
           style={{
-            transform: `translateX(${getPushDistance()}rem)`,
+            transform: `translateX(${getPushDistance(screenWidth)}rem)`,
             transition: "transform 0.5s ease", // Smooth animation
           }}
           initial={{ opacity: 0 }}
