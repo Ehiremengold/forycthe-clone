@@ -1,43 +1,20 @@
 import "./Spark.css";
 import { sparkCtas, sparkCtasIllustrations } from "./export";
 import StyledButton from "../../StyledButton/StyledButton";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import useInView from "../../../CustomHook/useInView";
 
 const Spark = () => {
   const [tab, setTabSelect] = useState(0);
-  const [inView, setInView] = useState(false);
+  const isInView = useInView(".scale", { threshold: 0.5 });
 
-  // IntersectionObserver is to track if the component is in view
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setInView(true); // Set to true when in view
-          }
-        });
-      },
-      { threshold: 0.5 } // Trigger when 50% of the component is in view
-    );
-
-    const sectionElement = document.querySelector(".spark-to-spotlight");
-    if (sectionElement) {
-      observer.observe(sectionElement);
-    }
-
-    return () => {
-      if (sectionElement) {
-        observer.unobserve(sectionElement);
-      }
-    };
-  }, []);
   return (
     <section className="spark-to-spotlight">
       <div className="wrapper">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : -20 }}
+          animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : -20 }}
           transition={{ duration: 0.5 }}
           className="header-text"
         >
@@ -50,7 +27,7 @@ const Spark = () => {
             <motion.div
               className="tab-select"
               initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -20 }}
+              animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : -20 }}
               transition={{ duration: 0.5 }}
             >
               <div
@@ -81,7 +58,7 @@ const Spark = () => {
             <motion.div
               className="tab-select-content"
               initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -20 }}
+              animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : -20 }}
               transition={{ duration: 0.5 }}
             >
               {sparkCtas.map(
@@ -99,7 +76,7 @@ const Spark = () => {
           <motion.div
             className="spark-to-spotlight-illustration"
             initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 20 }}
+            animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : 20 }}
             transition={{ duration: 0.5 }}
           >
             <img src={sparkCtasIllustrations[tab]} alt="" />

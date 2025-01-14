@@ -1,9 +1,5 @@
 import "./Discover.css";
-import beauImg from "../../../assets/company-logos/Beaupreneur.svg";
-import execPros from "../../../assets/company-logos/ExecutiveProsLogo.svg";
-import iwaria from "../../../assets/company-logos/iwaria.svg";
-import stacai from "../../../assets/company-logos/stacai.svg";
-import starks from "../../../assets/company-logos/starks.svg";
+import { companyLogos } from "../../../assets/company-logos/exports";
 import { useState, useEffect } from "react";
 import { testimonies } from "./testimonies";
 import LazyImage from "../../LazyImage/LazyImage";
@@ -24,28 +20,6 @@ const Discover = () => {
     return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
 
-  // For animation
-  useEffect(() => {
-    const elements = document.querySelectorAll(".fade-on-scroll");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    elements.forEach((element) => {
-      observer.observe(element);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section className="discover">
       <div className="wrapper">
@@ -60,43 +34,24 @@ const Discover = () => {
           <br /> startups that scaled new heights with us
         </motion.h2>
         <div className="auto-tab-container">
-          <div
-            className={`icon-tab-container ${tab === 0 && "active"}`}
-            onClick={() => setTab(0)}
-          >
-            <img src={starks} alt="" />
-            Starks
-          </div>
-          <div
-            className={`icon-tab-container ${tab === 1 && "active"}`}
-            onClick={() => setTab(1)}
-          >
-            <img src={execPros} alt="" />
-          </div>
-          <div
-            className={`icon-tab-container ${tab === 2 && "active"}`}
-            onClick={() => setTab(2)}
-          >
-            <img src={stacai} alt="" />
-          </div>
-          <div
-            className={`icon-tab-container ${tab === 3 && "active"}`}
-            onClick={() => setTab(3)}
-          >
-            <img src={iwaria} alt="" />
-          </div>
-          <div
-            className={`icon-tab-container ${tab === 4 && "active"}`}
-            onClick={() => setTab(4)}
-          >
-            <img src={beauImg} alt="" />
-          </div>
+          {companyLogos.map((logo, index) => {
+            return (
+              <div
+                key={index}
+                className={`icon-tab-container ${tab === index && "active"}`}
+                onClick={() => setTab(index)}
+              >
+                <img src={logo} alt="" />
+                {tab == 0 && "Starks"}
+              </div>
+            );
+          })}
         </div>
 
         <motion.div
           className="testimony-container"
           style={{
-            transform: `translateX(${getPushDistance(screenWidth)}rem)`,
+            transform: `translateX(${getPushDistance(screenWidth, tab)}rem)`,
             transition: "transform 0.5s ease", // Smooth animation
           }}
           initial={{ opacity: 0 }}

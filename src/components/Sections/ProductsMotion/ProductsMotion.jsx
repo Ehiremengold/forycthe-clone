@@ -1,5 +1,6 @@
 import "./ProductsMotion.css";
 import motionProducts from "../../../assets/scroll-motion-imgs/exports.js";
+import LazyImage from "../../LazyImage/LazyImage.jsx";
 
 const ProductsMotion = () => {
   return (
@@ -8,7 +9,7 @@ const ProductsMotion = () => {
         <div className="slide-track">
           {motionProducts.map((img, index) => (
             <div key={index} className="slide">
-              <img
+              <LazyImage
                 src={img}
                 className="product-icon"
                 alt="product-icon"
@@ -18,7 +19,7 @@ const ProductsMotion = () => {
           ))}
           {motionProducts.map((img, index) => (
             <div key={index} className="slide">
-              <img
+              <LazyImage
                 src={img}
                 className="product-icon"
                 alt="product-icon"
@@ -30,7 +31,7 @@ const ProductsMotion = () => {
         <div className="slide-track-2">
           {motionProducts.map((img, index) => (
             <div key={index} className="slide">
-              <img
+              <LazyImage
                 src={img}
                 className="product-icon"
                 alt="product-icon"
@@ -40,7 +41,7 @@ const ProductsMotion = () => {
           ))}
           {motionProducts.map((img, index) => (
             <div key={index} className="slide">
-              <img
+              <LazyImage
                 src={img}
                 className="product-icon"
                 alt="product-icon"
