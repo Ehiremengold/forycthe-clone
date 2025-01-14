@@ -1,20 +1,45 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import "./Scale.css";
 import StyledButton from "../../StyledButton/StyledButton";
 import logo from "../../../assets/company-logos/forcythelogo.svg";
 import { socialMediaIcons } from "../../../assets/social-media-icons/exports";
-import useInView from "../../../CustomHook/useInView";
+
 const Scale = () => {
   const [radioClick, setRadioClick] = useState(false);
-  const isInView = useInView(".scale", { threshold: 0.5 });
+  const [inView, setInView] = useState(false);
+
+  // IntersectionObserver to track if the component is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInView(true); // Set to true when in view
+          }
+        });
+      },
+      { threshold: 0.5 } // Trigger when 50% of the component is in view
+    );
+
+    const sectionElement = document.querySelector(".scale");
+    if (sectionElement) {
+      observer.observe(sectionElement);
+    }
+
+    return () => {
+      if (sectionElement) {
+        observer.unobserve(sectionElement);
+      }
+    };
+  }, []);
 
   return (
     <section className="scale">
       <motion.div
         className="scale__header-text"
         initial={{ opacity: 0 }}
-        animate={{ opacity: isInView ? 1 : 0 }}
+        animate={{ opacity: inView ? 1 : 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}
       >
         <h2>
@@ -32,7 +57,7 @@ const Scale = () => {
             <motion.div
               className="subscribe-input-container"
               initial={{ opacity: 0 }}
-              animate={{ opacity: isInView ? 1 : 0 }}
+              animate={{ opacity: inView ? 1 : 0 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
               <div className="input-container">
@@ -41,7 +66,13 @@ const Scale = () => {
                   className="subscribe-input"
                   placeholder="Your Email Address"
                 />
-                <button className="subscribe-btn">Subscribe</button>
+                <motion.button
+                  className="subscribe-btn"
+                  whileHover={{ scale: 1.1, backgroundColor: "#064386", color: "white" }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Subscribe
+                </motion.button>
               </div>
               <div className="radio-choice">
                 <div
@@ -62,7 +93,7 @@ const Scale = () => {
           <motion.div
             className="footer-center"
             initial={{ opacity: 0 }}
-            animate={{ opacity: isInView ? 1 : 0 }}
+            animate={{ opacity: inView ? 1 : 0 }}
             transition={{ duration: 1, delay: 0.8 }}
           >
             <div className="logo">
@@ -108,10 +139,10 @@ const Scale = () => {
       <motion.div
         className="wrapper"
         initial={{ opacity: 0 }}
-        animate={{ opacity: isInView ? 1 : 0 }}
+        animate={{ opacity: inView ? 1 : 0 }}
         transition={{ duration: 1, delay: 1 }}
       >
-        <h5>Copyright &copy; 2024 Forcythe. All rights reserved.</h5>
+        <h5>Copyright © 2024 Forcythe. All rights reserved.</h5>
       </motion.div>
     </section>
   );

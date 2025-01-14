@@ -5,12 +5,11 @@ const useInView = (selector, options = { threshold: 0.3 }) => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setInView(true);
-          } else {
-            setInView(false);
+            observer.disconnect(); // Stop observing once triggered
           }
         });
       },
@@ -23,9 +22,7 @@ const useInView = (selector, options = { threshold: 0.3 }) => {
     }
 
     return () => {
-      if (element) {
-        observer.unobserve(element);
-      }
+      observer.disconnect(); // Cleanup the observer on unmount
     };
   }, [selector, options]);
 

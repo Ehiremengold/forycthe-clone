@@ -7,7 +7,7 @@ import useInView from "../../../CustomHook/useInView";
 
 const Spark = () => {
   const [tab, setTabSelect] = useState(0);
-  const isInView = useInView(".scale", { threshold: 0.5 });
+  const isInView = useInView(".scale", { threshold: 0.3 });
 
   return (
     <section className="spark-to-spotlight">
