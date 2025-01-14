@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import "./Scale.css";
 import StyledButton from "../../StyledButton/StyledButton";
 import logo from "../../../assets/company-logos/forcythelogo.svg";
@@ -66,13 +66,9 @@ const Scale = () => {
                   className="subscribe-input"
                   placeholder="Your Email Address"
                 />
-                <motion.button
-                  className="subscribe-btn"
-                  whileHover={{ scale: 1.1, backgroundColor: "#064386", color: "white" }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                <button className="subscribe-btn">
                   Subscribe
-                </motion.button>
+                </button>
               </div>
               <div className="radio-choice">
                 <div
