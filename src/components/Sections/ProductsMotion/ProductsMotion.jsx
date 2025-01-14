@@ -1,6 +1,6 @@
 import "./ProductsMotion.css";
 import motionProducts from "../../../assets/scroll-motion-imgs/exports.js";
-import LazyImage from "../../LazyImage/LazyImage.jsx";
+
 
 const ProductsMotion = () => {
   return (
