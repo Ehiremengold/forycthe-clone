@@ -1,4 +1,4 @@
-![forcythe-clone-hero]('../../src/assets/clone.png')
+![forcythe-clone-hero](./src/assets/clone.png)
 
 ## Development Process:
 
