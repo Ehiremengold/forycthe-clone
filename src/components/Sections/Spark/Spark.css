@@ -1,6 +1,5 @@
 .spark-to-spotlight {
   margin: 5rem 0;
-  /* border: 1px solid red; */
 }
 
 .spark-to-spotlight .wrapper {
@@ -22,13 +21,11 @@
   display: flex;
   align-items: center;
   margin: 2rem 0;
-  /* gap: 3rem; */
 }
 
 @media (max-width: 768px) {
   .spark-to-spotlight-actions-container {
     flex-wrap: wrap;
-    /* gap: 1.5rem; */
   }
 }
 
@@ -37,7 +34,6 @@
   flex-direction: column;
   justify-content: space-around;
   gap: 1rem;
-  /* border: 1px solid purple; */
   height: 426px;
   width: 100%;
 }
@@ -47,8 +43,6 @@
   border-radius: 50px;
   display: flex;
   overflow: hidden;
-  /* justify-content: space-between; */
-  /* gap: 1rem; */
 }
 
 .tab-1,
@@ -99,7 +93,6 @@
 }
 .spark-to-spotlight-illustration {
   height: 426px;
-  /* border: 1px solid green; */
   width: 100%;
 }
 

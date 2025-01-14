@@ -2,10 +2,8 @@
   margin: 3rem 0;
 }
 .discover .wrapper {
-  /* overflow: hidden; */
   margin-inline: auto;
   position: relative;
-  /* border: 1px solid red; */
 }
 
 .discover h2,
@@ -23,7 +21,6 @@
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-/* Fade in animation */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -37,14 +34,12 @@
 }
 
 .auto-tab-container {
-  /* padding: 0 1.5rem; */
   height: 60px;
   width: 100%;
   border: 1px solid var(--accent);
   margin: 2rem 0;
   border-radius: 35px;
   display: flex;
-  /* gap: 0.5rem; */
   align-items: center;
 }
 
@@ -54,7 +49,6 @@
   height: 100%;
   display: flex;
   place-content: center;
-  /* overflow: hidden; */
 }
 
 .icon-tab-container img {
@@ -63,7 +57,6 @@
 
 .auto-tab-container .icon-tab-container.active {
   background-color: var(--secondary-background);
-  /* overflow: hidden; */
 }
 
 .auto-tab-container div:first-child {
@@ -105,7 +98,7 @@
   transition: transform 0.5s ease;
 }
 
-/* Add animation delay for each section */
+/* Added animation delay for each section */
 .testimony-container h3 {
   animation-delay: 0.3s;
 }
@@ -127,7 +120,6 @@
     flex-wrap: wrap;
   }
   .testimony-container .img-content {
-    /* border: 1px solid red; */
     width: 100%;
   }
   .testimony-container .img-content img {

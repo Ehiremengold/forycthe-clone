@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import "./B2b.css";
 import layerIcon from "../../../assets/icons/layers-three.svg";
-import useInView from "../../../CustomHook/useInView";
+import useInView from "../../../CustomHooks/useInView";
 
 const B2b = () => {
   const isInView = useInView(".bee-2-bee", { threshold: 0.3 });

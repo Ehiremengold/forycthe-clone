@@ -8,8 +8,6 @@
   place-items: center;
   position: relative;
   margin-top: 6.5rem;
-  /* height: 600px; */
-  /* border: 1px solid red; */
 }
 
 .hero .wrapper {
@@ -26,12 +24,7 @@
   transform: translateY(20px);
   animation: fadeInUp 2s forwards;
   overflow: hidden; /* Hide overflowing text during animation */
-  white-space: normal; /* Allow text to wrap */
-}
-
-.hero h1 span,
-.hero h2 span {
-  color: #3498db; /* Change color for emphasis */
+  white-space: normal; 
 }
 
 @keyframes fadeInUp {

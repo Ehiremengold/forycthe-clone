@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { testimonies } from "./testimonies";
 import LazyImage from "../../LazyImage/LazyImage";
 import { motion } from "framer-motion";
-import { useScreenSize } from "../../../CustomHook/useScreenSize";
+import { useScreenSize } from "../../../CustomHooks/useScreenSize";
 import { getPushDistance } from "./utils";
 
 const Discover = () => {

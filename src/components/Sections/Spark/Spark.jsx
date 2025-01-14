@@ -3,7 +3,7 @@ import { sparkCtas, sparkCtasIllustrations } from "./export";
 import StyledButton from "../../StyledButton/StyledButton";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import useInView from "../../../CustomHook/useInView";
+import useInView from "../../../CustomHooks/useInView";
 
 const Spark = () => {
   const [tab, setTabSelect] = useState(0);

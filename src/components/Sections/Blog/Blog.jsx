@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import "./Blog.css";
 import StyledButton from "../../StyledButton/StyledButton";
 import { posts } from "./posts";
-import useInView from "../../../CustomHook/useInView";
+import useInView from "../../../CustomHooks/useInView";
 
 const Blog = () => {
   const isInView = useInView(".blog", { threshold: 0.3 });
