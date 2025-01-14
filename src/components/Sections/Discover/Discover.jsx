@@ -56,7 +56,7 @@ const Discover = () => {
           }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
+          transition={{ duration: 1, delay: 0.7 }}
         >
           <div className="text-content">
             <h3>{testimonies[tab].title}</h3>
