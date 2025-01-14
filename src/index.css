@@ -46,7 +46,6 @@ body {
   width: 2000px; /* Using this width because of my screen's width (for incredibly wide screens) */
   margin-inline: auto;
   font-family: "Lexend", sans-serif;
-  /* overflow: hidden; */
   position: relative;
   scroll-behavior: smooth;
 }
