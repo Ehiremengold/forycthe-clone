@@ -1,3 +1,5 @@
+![forcythe-clone-hero]('../../src/assets/clone.png')
+
 ## Development Process:
 
 #### Initial Setup:
